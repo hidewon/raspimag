@@ -2,6 +2,8 @@ import wiringpi as pi,time
 
 import os,struct
 
+import datetime
+
 pi.wiringPiSetup()
 i2c=pi.I2C()
 
@@ -17,5 +19,8 @@ while True:
 	if(temp_data[0] >= 0x80):
 		temp=temp-65536
 	temp=temp/128
+	date=time
+	print("Time:",datetime.datetime.now())
 	print("Temperature:",temp,"C")
-	time.sleep(1)
+	print("")
+	time.sleep(60*60)
